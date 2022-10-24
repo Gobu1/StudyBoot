@@ -10,4 +10,9 @@
 	<insert id="setAdd" parameterType="QnaVO">
 		INSERT INTO QNA VALUES(NULL, #{writer}, #{title}, #{contents})
 	</insert>
+	
+	<insert id="setFileAdd" parameterType="QnaFileVO">
+		INSERT INTO QNAFILES
+		VALUES (NULL, #{num}, #{fileName}, #{oriName})
+	</insert>
 </mapper>

@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 public class WebConfig implements WebMvcConfigurer {
 	
 	
-	@Value("${app.upload.qna}")
+	@Value("${app.upload.base}")//spEl
 	private String filePath;
 	
 	@Value("${app.url.path}")
@@ -25,6 +25,7 @@ public class WebConfig implements WebMvcConfigurer {
 		log.info("=======");
 		log.info("filepath {}", filePath);
 		log.info("urlPath {}", urlPath);
+		log.info("=======");
 		registry.addResourceHandler(urlPath)
 				.addResourceLocations(filePath);
 	}

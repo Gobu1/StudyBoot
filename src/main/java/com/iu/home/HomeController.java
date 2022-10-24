@@ -11,25 +11,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.home.board.qna.QnaMapper;
+
 
 @Controller
 public class HomeController {
 	
-	@Value("${my.message.hi}")
+//	@Value("${my.message.hi}")
 	private String message;
+	@Value("${my.default}")
+	private String app;
 	
-	
+//	private final Logger log = LoggerFactory.getLogger(HomeController.class);
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 	
+	@Autowired
+	private QnaMapper qnaMapper;
 	
 	@GetMapping("/")
-	public String home()throws Exception {
-		System.out.println(message);
-		log.error("Error Messeage");
-		log.warn("Warn Message");
-		log.info("Info Message");
-		log.debug("debug message");
-		log.trace("trace message");
+	public String home() throws Exception {
+		log.info("==========================");
+		log.info("message {} ", message);
+		log.info("default {} ", app);
+		log.info("==========================");
 
 		return "index";
 	}

@@ -32,6 +32,10 @@ public class QnaController {
 		return "redirect:./list";
 	}
 	
+	@GetMapping("add")
+	public String setAdd()throws Exception{
+		return "board/write";
+	}
 	
 	
 	@GetMapping("list")
@@ -43,7 +47,7 @@ public class QnaController {
 		
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
-		mv.setViewName("qna/list");
+		mv.setViewName("board/list");
 		return mv;
 	}
 	
