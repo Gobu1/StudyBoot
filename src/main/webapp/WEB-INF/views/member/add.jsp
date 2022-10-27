@@ -18,6 +18,10 @@
 		<button type="submit" id="btn1" class="btn btn-outline-dark">회원 가입</button>
 	</form>
 	<div>
+		<button type="button" id="test2">테스트2</button>
+		<button type="button" id="test3">테스트3</button>
+	</div>
+	<div>
 		<div>
 			ALL<input type="checkbox" id="all">
 		</div>
@@ -41,6 +45,14 @@
 				약관3
 			</div>
 		</div>
+
+	</div>
+	<div>
+		<select id="s1">
+			<option value="">1</option>
+			<option value="">2</option>
+		</select>
+		<button id="sbtn1">옵션버튼</button>
 
 	</div>
 </body>

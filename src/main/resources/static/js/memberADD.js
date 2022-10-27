@@ -59,3 +59,50 @@ $("#id").blur(function(){
     }
 })
 
+$("#test2").click(function(){
+    let id = "abcd";
+    $.ajax({
+        type:"GET",
+        url:"idCheck",
+        data:{
+            id:id
+        },
+        success:function(data){
+            console.log(data+" : DATA")
+        },
+        error:function(xhr,status,error){
+            console.log("--------")
+            console.log(xhr)
+            console.log(status)
+            console.log(error)
+        }
+    })
+
+})
+
+$("#test3").click(function(){
+    let id = "ABCD";
+    let name = "IU";
+    let ar = [1,2,3];
+    $.ajax({
+        type:"POST",
+        url:"test",
+        traditional:true,
+        data:{
+            id:id,
+            name:name,
+            ar:ar
+        },
+        success:function(result){
+            console.log("result - "+result)
+        }
+    })
+
+})
+let count = 3
+$("#sbtn1").click(function(){
+    
+    let add = '<option>'+count+'</option>';
+    $("#s1").append(add);
+    count++;
+})
