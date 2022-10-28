@@ -8,6 +8,14 @@
 		SELECT * FROM QNA ORDER BY NUM DESC LIMIT #{startRow}, 10
 	</select>
 	
+	<select id="getDetail" parameterType="QnaVO" resultType="QnaVO">
+		SELECT * FROM QNA WHERE NUM = #{num}
+	</select>
+	
+	<update id="setUpdate" parameterType="QnaVO">
+		UPDATE QNA SET TITLE = #{title}. WRITER = #{writer}, CONTENTS = #{contents} WHERE NUM = #{num}
+	</update>
+	
 	<insert id="setAdd" parameterType="QnaVO">
 		INSERT INTO QNA VALUES(NULL, #{writer}, #{title}, #{contents})
 	</insert>

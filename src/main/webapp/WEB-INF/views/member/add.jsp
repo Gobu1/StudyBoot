@@ -17,43 +17,8 @@
 		<div><input type="text" name="email" id="email"></div>
 		<button type="submit" id="btn1" class="btn btn-outline-dark">회원 가입</button>
 	</form>
-	<div>
-		<button type="button" id="test2">테스트2</button>
-		<button type="button" id="test3">테스트3</button>
-	</div>
-	<div>
-		<div>
-			ALL<input type="checkbox" id="all">
-		</div>
-		<div>
-			동의1 <input type="checkbox" name="" id="ck1">
-			<div>
-				약관1
-			</div>
-		</div>
-
-		<div>
-			동의2 <input type="checkbox" name="" id="ck2">
-			<div>
-				약관2
-			</div>
-		</div>
-		<div>
-			
-			동의3 <input type="checkbox" name="" id="ck3">
-			<div>
-				약관3
-			</div>
-		</div>
-
-	</div>
-	<div>
-		<select id="s1">
-			<option value="">1</option>
-			<option value="">2</option>
-		</select>
-		<button id="sbtn1">옵션버튼</button>
-
+	<div id="addFiles">
+		<button type="button" class="btn btn-danger" id="fileAdd">파일 추가</button>
 	</div>
 </body>
 </html>

@@ -26,6 +26,14 @@ public class QnaService {
 	@Value("${app.upload.qna}")
 	private String path;
 	
+	public QnaVO getDetail(QnaVO qnaVO)throws Exception{
+		return qnaMapper.getDetail(qnaVO);
+	}
+	
+	public int setUpdate(QnaVO qnaVO)throws Exception{
+		return qnaMapper.setUpdate(qnaVO);
+	}
+	
 	public List<QnaVO> getList(Pager pager)throws Exception{
 		pager.getRowNum();
 		return qnaMapper.getList(pager);
@@ -34,7 +42,7 @@ public class QnaService {
 	public int setAdd(QnaVO qnaVO)throws Exception{
 
 		int result = qnaMapper.setAdd(qnaVO);
-		
+		log.info(qnaVO.getNum()+"겟 넘");
 		File file = new File(path);
 		
 		if(!file.exists()) {

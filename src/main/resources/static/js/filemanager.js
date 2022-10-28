@@ -1,6 +1,5 @@
 let count=0;
 let idx=0;
-
 $("#fileAdd").click(function(){
     console.log(count);
     if(count>4){
@@ -21,4 +20,8 @@ $("#addFiles").on('click', '.del', function(){
     let ts = $(this).parent()
     ts.remove();
     count--;
+})
+
+$(".deleteFile").click(function(){
+
 })
