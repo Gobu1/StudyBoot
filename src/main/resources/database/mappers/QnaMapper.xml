@@ -16,8 +16,8 @@
 		UPDATE QNA SET TITLE = #{title}. WRITER = #{writer}, CONTENTS = #{contents} WHERE NUM = #{num}
 	</update>
 	
-	<insert id="setAdd" parameterType="QnaVO">
-		INSERT INTO QNA VALUES(NULL, #{writer}, #{title}, #{contents})
+	<insert id="setAdd" parameterType="QnaVO" useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO QNA VALUES(#{num}, #{writer}, #{title}, #{contents})
 	</insert>
 	
 	<insert id="setFileAdd" parameterType="QnaFileVO">

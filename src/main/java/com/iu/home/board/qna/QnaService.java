@@ -52,17 +52,12 @@ public class QnaService {
 		
 		for(MultipartFile f : qnaVO.getFiles()) {
 			if(!f.isEmpty()) {
-				log.info("FileName : {}", f.getOriginalFilename());
-				log.info("패스테스트");
-				log.info("filepath : {}", path);
 				String fileName = fileManager.saveFile(f, path);
-				log.info("테스트 파일테임 {}", fileName);
 				QnaFileVO qnaFileVO = new QnaFileVO();
 				qnaFileVO.setFileName(fileName);
 				qnaFileVO.setOriName(f.getOriginalFilename());
 				qnaFileVO.setNum(qnaVO.getNum());
 				qnaMapper.setFileAdd(qnaFileVO);
-				log.info("테스트2");
 				
 			}
 		}

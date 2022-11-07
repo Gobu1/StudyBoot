@@ -51,12 +51,10 @@ class QnaMapperTest {
 //	@Test
 //	void test()throws Exception{
 //		QnaVO qnaVO = new QnaVO();
-//		for(int i=11; i<100; i++) {
 //			qnaVO.setWriter("writer"+i);
 //			qnaVO.setTitle("title"+i);
 //			qnaVO.setContents("contents"+i);
 //			int result = qnaMapper.setAdd(qnaVO);			
-//		}
 //	}
 //	
 }

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 import com.iu.home.interceptors.StudyInterceptor;
 import com.iu.home.interceptors.TestInterceptor;
@@ -18,6 +19,8 @@ public class InterceptorConfig implements WebMvcConfigurer{
 	private TestInterceptor testInterceptor;
 	@Autowired
 	private StudyInterceptor studyInterceptor;
+	@Autowired
+	private LocaleChangeInterceptor localeChangeInterceptor;
 	@Override
 		public void addInterceptors(InterceptorRegistry registry) {
 		//method 체이닝
@@ -30,6 +33,9 @@ public class InterceptorConfig implements WebMvcConfigurer{
 					.excludePathPatterns("/qna/detail");
 			registry.addInterceptor(studyInterceptor)
 					.addPathPatterns("/qna/**");
+			
+			registry.addInterceptor(localeChangeInterceptor)
+					.addPathPatterns("/**");
 			WebMvcConfigurer.super.addInterceptors(registry);
 		}
 }

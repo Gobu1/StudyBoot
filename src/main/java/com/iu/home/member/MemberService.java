@@ -17,9 +17,9 @@ public class MemberService {
 	@Autowired
 	private MemberMapper memberMapper;
 	
-	public MemberVO getLogin(MemberVO memberVO)throws Exception{
-		return memberMapper.getLogin(memberVO);
-	}
+//	public MemberVO getLogin(MemberVO memberVO)throws Exception{
+//		return memberMapper.getLogin(memberVO);
+//	}
 	
 	public int setAdd(MemberVO memberVO)throws Exception{
 		int result = memberMapper.setAdd(memberVO);

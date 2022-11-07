@@ -3,10 +3,13 @@ package com.iu.home.member;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,23 +30,29 @@ public class MemberController {
 		return "member/login";
 	}
 	
-	@PostMapping("login")
-	public ModelAndView getLogin(MemberVO memberVO, HttpSession session)throws Exception{
-		ModelAndView mv = new ModelAndView();
-		memberVO = memberService.getLogin(memberVO);
-		session.setAttribute("member", memberVO);
-		mv.setViewName("redirect:../");
-		return mv;
-	}
+//	@PostMapping("login")
+//	public ModelAndView getLogin(MemberVO memberVO, HttpSession session)throws Exception{
+//		ModelAndView mv = new ModelAndView();
+////		memberVO = memberService.getLogin(memberVO);
+//		session.setAttribute("member", memberVO);
+//		mv.setViewName("redirect:../");
+//		return mv;
+//	}
 	
 	@GetMapping("add")
-	public String setAdd()throws Exception{
-		return "member/add";
+	public void setAdd(@ModelAttribute MemberVO memberVO)throws Exception{
+		
 	}
 	
 	@PostMapping("add")
-	public ModelAndView setAdd(MemberVO memberVO)throws Exception{
-		ModelAndView mv = new ModelAndView();
+	public ModelAndView setAdd(@Valid MemberVO memberVO, BindingResult bindingResult, ModelAndView mv)throws Exception{
+		boolean ck = bindingResult.hasErrors();
+		log.info("asdf  : {}", ck);
+		if(bindingResult.hasErrors()) {
+			mv.setViewName("member/add");
+			return mv;
+		}
+		
 		int result = memberService.setAdd(memberVO);
 		mv.setViewName("redirect:./login");
 		return mv;

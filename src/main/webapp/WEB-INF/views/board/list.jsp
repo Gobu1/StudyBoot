@@ -22,8 +22,6 @@
 					<th>NUM</th>
 					<th>TILTE</th>
 					<th>WRITER</th>
-					<th>HIT</th>
-					<th>DATE</th>
 				</tr>
 			</thead>
 			
@@ -33,8 +31,6 @@
 					<td>${vo.num}</td>
 					<td><a href="./detail?num=${vo.num}">${vo.title}</a></td>
 					<td>${vo.writer}</td>
-					<td>${vo.hit}</td>
-					<td>${vo.regDate}</td>
 				</tr>	
 			</c:forEach>
 			
